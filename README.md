@@ -17,7 +17,7 @@ As a primarily Apple user, my player of choice is [Swinsian](https://swinsian.co
    When I acquire new music—whether it’s ripped from a CD or digitally purchased—my first step is always converting it to ALAC (Apple Lossless Audio Codec) while maintaining the original bitrate. I chose ALAC for its native support within the Apple ecosystem.
 
 2. **Tag Cleanup in MP3tag**  
-   After conversion, I use [MP3tag](https://www.mp3tag.de/en/) to clean up metadata. This includes fetching missing album artwork, organizing file names based on my preferred format, and structuring everything into the right folders. Both *Swinsian* and *Plex* seem happy with the results, so it’s a win-win.
+   After conversion, I use [MP3tag](https://www.mp3tag.de/en/) to clean up metadata. This includes fetching missing album artwork, [organizing file names based on my preferred format](guides/mp3tag-batch.md), and structuring everything into the right folders. Both *Swinsian* and *Plex* seem happy with the results, so it’s a win-win.
 
 3. **Curating the Library**  
    Once the music is in my library, I start curating. I use the star rating system and create playlists. One major challenge was syncing ratings across different platforms—this was by far the trickiest part.  
@@ -25,9 +25,9 @@ As a primarily Apple user, my player of choice is [Swinsian](https://swinsian.co
    I should mention here that I use [Synology Drive](https://www.synology.com/en-global/dsm/feature/drive) to keep my entire library synced and backed up between my local setup and my NAS/Plex server. It can be heavy when using *MP3tag* because every time I modify a tag, the whole track gets re-synced. But I’m fortunate to have a 2.5Gb internet connection and a 10Gb local network, so speed isn’t an issue for me. That said, this part of the workflow could probably be more efficient.
 
 4. **Syncing Ratings**  
-   I do all my rating in *Swinsian* since I don’t rate music on the fly. Swinsian uses a 0-100 rating scale, where 100 is 5 stars, 50 is 2.5 stars, and so on. *Plex*, however, uses a 0.0-10.0 scale, where 10.0 is 5 stars and 5.0 is 2.5 stars. To sync these, I wrote a Python script that runs on my [Synology NAS](https://www.synology.com/en-global/products/NAS) converting Swinsian’s ratings into Plex’s format.  
+   I do all my rating in *Swinsian* since I don’t rate music on the fly. Swinsian uses a 0-100 rating scale, where 100 is 5 stars, 50 is 2.5 stars, and so on. *Plex*, however, uses a 0.0-10.0 scale, where 10.0 is 5 stars and 5.0 is 2.5 stars. To sync these, I wrote a [Python script](plex_red_ratings.py) that runs on my Synology NAS converting Swinsian’s ratings into Plex’s format.  
    
-   Another obstacle was that rating tags aren’t standardized across platforms. To work around this, I used *MP3tag* to copy the rating tags into the comment field, allowing my script to read and sync ratings properly. And yes, Swinsian ratings show up on the iPod too!
+   Another obstacle was that rating tags aren’t standardized across platforms. To work around this, [I used MP3tag to copy the rating tags into the comment field](guides/mp3tag-rate-conversion.md), allowing my script to read and sync ratings properly. And yes, Swinsian ratings show up on the iPod too!
 
 5. **Playlists**  
    I build all my playlists in *Swinsian*, and they work perfectly on my iPod Classic. Syncing playlists with *Plex* isn’t a priority for me right now, but I might explore that in the future (stay tuned for an update).
